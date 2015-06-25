@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Welcome to my homepage!</title>
+<meta name="description" content="you can find me through the mentioned links">
+<meta name="author" content="Hakan Özler">
+<link rel="Shortcut Icon" href="images/logo.png" />  
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" media="screen" href="css/style.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/trianglify.js"></script>
+</head>
+<body>
+<div class="panel">
+	<h1>Welcome!</h1>
+	<h2>You can reach me through the available connections:</h2>
+	<ul>
+		<li><a href="http://tr.linkedin.com/in/ozlerhakan"><span>LinkedIn</span><i class="fa fa-linkedin-square"></i></a></li>
+		<li><a href="https://github.com/ozlerhakan"><span>GitHub</span><i class="fa fa-github"></i></a></li>
+		<li><a href="https://twitter.com/ozlerhakan"><span>Twitter</span><i class="fa fa-twitter"></i></a></li>
+		<li><a href="http://www.kodcu.com/author/hakan.ozler/"><span>Posts</span><i class="fa fa-pencil"></i></a></li>
+		<li><a href="mailto:ozler.hakan@gmail.com"><span>Mail</span><i class="fa fa-envelope"></i></a></li>
+	</ul>
+</div>
+<script>
+var t = new Trianglify();
+var pattern = t.generate(document.body.clientWidth, document.body.clientHeight);
+document.body.setAttribute('style', 'background-image: '+pattern.dataUrl);
+
+window.onresize = function() {
+    redraw();
+};
+function redraw() {
+    var pattern = t.generate(document.body.clientWidth, height());
+    document.body.setAttribute('style', 'background-image: '+pattern.dataUrl);
+}
+function height() {
+    return Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight
+    );
+}
+</script>
+</body>
+</html>
